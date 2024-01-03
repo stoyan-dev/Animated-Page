@@ -3,17 +3,17 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing:border-box;
+    box-sizing: border-box;
     font-family: 'Lato', sans-serif;
 }
 
-.header{
+.header {
     position: fixed;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     width: 100%;
     padding: 30px 80px;
-    background-color: slateblue;
+    background-color: transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,7 +22,7 @@
 
 .logo {
     font-size: 30px;
-    color:#fff;
+    color: #fff;
     text-decoration: none;
     font-weight: 700;
 }
@@ -33,4 +33,129 @@
     text-decoration: none;
     font-weight: 500;
     margin-left: 50px;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; 
+}
+
+.bg-slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.bg-slide .circle,
+.bg-slide .circle img,
+.circle-darktransp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+}
+
+.bg-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-slide .circle {
+    pointer-events: none;
+    user-select: none;
+    overflow: hidden;
+}
+
+.bg-slide.active .circle{
+    z-index: 10;
+}
+
+.bg-slide .circle.large,
+.circle-darktransp {
+    clip-path: circle(50% at 50% 50%);
+}
+
+.bg-slide .circle.small {
+    clip-path: circle(30% at 50% 50%);
+    z-index: 12;
+}
+
+.bg-slide .circle img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transform: rotate(0deg) scale(2);
+}
+.circle-darktransp {
+    background: rgba(0, 0, 0, .1);
+    z-index: 11;
+}
+
+.bg-slide .content-text{
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-text .city {
+    margin-top: 60px;
+}
+
+.content-text .place h1,
+.content-text .city h2{
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.content-text .place h1 {
+    font-size: 60px;
+    letter-spacing: 80px;
+    margin-right: -80px;
+}
+
+.content-text .city h2{
+    font-size: 40px;
+    letter-spacing: 30px;
+    margin-right: -30px;
+}
+
+.line {
+    position: absolute;
+    top: 50.5%;
+    left: 50.5%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 2px;
+    background: #fff;
+    z-index: 100;
+}
+
+.rotate-btn {
+    position: absolute;
+    bottom: 60px;
+    right: 60px;
+    width: 70px;
+    height: 70px;
+    background: rgb(143,63,251);
+    background: radial-gradient(circle, rgba(143,63,251,0.7131303204875701) 0%, rgba(70,127,252,0.7495448863139005) 100%);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rotate-btn i {
+    font-size:45px;
+    color: #fff;
 }
